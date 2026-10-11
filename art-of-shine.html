@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Art of Shine | فن اللمعان — PPF & Car Care — Sabya, Jazan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #111318;
+    --card: #1a1d24;
+    --gold: #c9a84c;
+    --gold2: #e8c96a;
+    --white: #f5f5f5;
+    --muted: #8a8d95;
+    --radius: 12px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .logo span { color: var(--white); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1505 50%, #0a0a0a 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 500px;
+    margin: 0 auto 36px;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* SECTIONS */
+  section { padding: 64px 24px; max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  .subtitle { color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+
+  /* PACKAGES */
+  .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .pkg-card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .pkg-card:hover { border-color: rgba(201,168,76,0.4); }
+  .pkg-card.featured { border-color: var(--gold); }
+  .pkg-tag {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .pkg-icon { font-size: 32px; margin-bottom: 16px; }
+  .pkg-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .pkg-card p { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .pkg-features { list-style: none; margin-bottom: 24px; }
+  .pkg-features li {
+    font-size: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .pkg-features li::before { content: '✓'; color: var(--gold); flex-shrink: 0; font-weight: 700; }
+  .pkg-btn {
+    display: block;
+    text-align: center;
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .pkg-card.featured .pkg-btn { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .feat {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+  .feat-icon { font-size: 36px; margin-bottom: 12px; }
+  .feat h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .feat p { color: var(--muted); font-size: 13px; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+    margin: 0 24px;
+  }
+
+  /* BOOKING */
+  .booking-wrap {
+    background: var(--card);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .booking-wrap h2 { text-align: center; margin-bottom: 8px; }
+  .booking-wrap .subtitle { text-align: center; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--muted); }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--white);
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    outline: none;
+  }
+  .form-group select option { background: var(--deep); }
+  .form-group input:focus,
+  .form-group select:focus { border-color: var(--gold); }
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .or-divider { text-align: center; color: var(--muted); margin: 20px 0; font-size: 13px; }
+  .contact-btns { display: flex; gap: 12px; }
+  .wa-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    padding: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .call-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    padding: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* LOCATION */
+  .location-box {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .location-info {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .loc-icon { font-size: 32px; flex-shrink: 0; }
+  .loc-text h4 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .loc-text p { color: var(--muted); font-size: 14px; }
+  .loc-text a { color: var(--gold); text-decoration: none; font-weight: 600; }
+  iframe { display: block; width: 100%; height: 220px; border: none; }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-logo { font-size: 24px; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
+  .footer-logo span { color: var(--white); }
+  footer p { color: var(--muted); font-size: 13px; }
+
+  /* FLOATING WA */
+  .float-wa {
+    position: fixed;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    left: 24px;
+    background: #25D366;
+    color: #fff;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 99;
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 48px 16px; }
+    .booking-wrap { padding: 28px 20px; }
+    .contact-btns { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Art <span>of Shine</span></div>
+  <a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن خدماتكم" class="nav-cta">احجز الآن</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✦ رعاية احترافية للسيارات — سبيا، جازان</div>
+  <h1>فن <span>اللمعان</span><br>يبدأ هنا</h1>
+  <p>حماية متميزة، تلميع احترافي، ونتائج تتحدث عن نفسها — لأن سيارتك تستحق الأفضل</p>
+  <div class="hero-btns">
+    <a href="#booking" class="btn-primary">احجز موعدك</a>
+    <a href="#services" class="btn-outline">خدماتنا</a>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section>
+  <div class="features-grid">
+    <div class="feat">
+      <div class="feat-icon">🛡️</div>
+      <h4>حماية قصوى</h4>
+      <p>فيلم PPF يقي طلاء سيارتك من الخدوش والحصى</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">✨</div>
+      <h4>لمعان استثنائي</h4>
+      <p>تلميع احترافي يعيد سيارتك كأنها جديدة من المعرض</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">💧</div>
+      <h4>نانو سيراميك</h4>
+      <p>طبقة حماية مقاومة للماء والغبار وأشعة الشمس</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🎨</div>
+      <h4>دهان احترافي</h4>
+      <p>تغيير لون سيارتك أو إصلاح الطلاء بجودة عالية</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES / PACKAGES -->
+<section id="services">
+  <div class="section-label">خدماتنا</div>
+  <h2>اختر الحماية المناسبة لسيارتك</h2>
+  <p class="subtitle">باقات متكاملة بأسعار تنافسية — سيارتك بأيدٍ أمينة</p>
+  <div class="packages">
+
+    <div class="pkg-card featured">
+      <div class="pkg-tag">الأكثر طلباً</div>
+      <div class="pkg-icon">🏆</div>
+      <h3>الحماية الكاملة</h3>
+      <p>حماية شاملة لكامل السيارة</p>
+      <ul class="pkg-features">
+        <li>فيلم PPF لكامل الجسم</li>
+        <li>تلميع خارجي كامل</li>
+        <li>طلاء نانو سيراميك</li>
+        <li>تنظيف داخلي شامل</li>
+      </ul>
+      <a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن باقة الحماية الكاملة" class="pkg-btn">احجز عبر واتساب</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-icon">🛡️</div>
+      <h3>باقة PPF الأمامية</h3>
+      <p>حماية مركزة للجزء الأمامي</p>
+      <ul class="pkg-features">
+        <li>PPF للغطاء الأمامي كامل</li>
+        <li>المصابيح الأمامية</li>
+        <li>المرايا الجانبية</li>
+        <li>المصد الأمامي</li>
+      </ul>
+      <a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن باقة PPF الأمامية" class="pkg-btn">احجز عبر واتساب</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-icon">✨</div>
+      <h3>التلميع الاحترافي</h3>
+      <p>إزالة الخدوش واستعادة اللمعان</p>
+      <ul class="pkg-features">
+        <li>تلميع خارجي متعدد المراحل</li>
+        <li>إزالة الخدوش السطحية</li>
+        <li>تلميع المصابيح</li>
+        <li>شمع حماية نهائي</li>
+      </ul>
+      <a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن خدمة التلميع" class="pkg-btn">احجز عبر واتساب</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-icon">🎨</div>
+      <h3>الدهان الاحترافي</h3>
+      <p>تغيير اللون أو إصلاح الطلاء</p>
+      <ul class="pkg-features">
+        <li>دهان كامل أو جزئي</li>
+        <li>إصلاح الخدوش العميقة</li>
+        <li>ألوان متنوعة عالية الجودة</li>
+        <li>ضمان على العمل</li>
+      </ul>
+      <a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن خدمة الدهان" class="pkg-btn">احجز عبر واتساب</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BOOKING FORM -->
+<section id="booking">
+  <div class="booking-wrap">
+    <div class="section-label" style="text-align:center">احجز موعدك</div>
+    <h2>نصلك في أقرب وقت</h2>
+    <p class="subtitle">أرسل طلبك وسنتواصل معك فوراً</p>
+
+    <div class="form-group">
+      <label>الاسم الكريم</label>
+      <input type="text" placeholder="أدخل اسمك">
+    </div>
+    <div class="form-group">
+      <label>رقم الجوال</label>
+      <input type="tel" placeholder="05XXXXXXXX">
+    </div>
+    <div class="form-group">
+      <label>الخدمة المطلوبة</label>
+      <select>
+        <option value="">-- اختر الخدمة --</option>
+        <option>فيلم PPF — حماية كاملة</option>
+        <option>فيلم PPF — الجزء الأمامي</option>
+        <option>طلاء نانو سيراميك</option>
+        <option>تلميع احترافي</option>
+        <option>ديتيلينج شامل</option>
+        <option>دهان السيارة</option>
+      </select>
+    </div>
+    <a href="https://wa.me/966561909073?text=مرحباً، أريد حجز موعد في Art of Shine" class="form-submit" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;">احجز موعدي الآن</a>
+
+    <div class="or-divider">— أو تواصل معنا مباشرة —</div>
+    <div class="contact-btns">
+      <a href="https://wa.me/966561909073" class="wa-btn">💬 واتساب</a>
+      <a href="tel:+966561909073" class="call-btn">📞 اتصل بنا</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="section-label">موقعنا</div>
+  <h2>تجدنا في سبيا، جازان</h2>
+  <p class="subtitle">نخدم جميع أنحاء منطقة جازان</p>
+  <div class="location-box">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15432!2d42.638!3d17.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDA5JzM2LjAiTiA0MsKwMzgnMTYuOCJF!5e0!3m2!1sar!2ssa"
+      allowfullscreen loading="lazy">
+    </iframe>
+    <div class="location-info">
+      <div class="loc-icon">📍</div>
+      <div class="loc-text">
+        <h4>Art of Shine — فن اللمعان</h4>
+        <p>سبيا، منطقة جازان، المملكة العربية السعودية</p>
+        <a href="https://wa.me/966561909073">واتساب: 0561909073</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Art <span>of Shine</span></div>
+  <p>فن اللمعان — سبيا، جازان، المملكة العربية السعودية</p>
+  <p style="margin-top:8px">© 2026 Art of Shine — جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/966561909073?text=مرحباً، أريد الاستفسار عن خدماتكم" class="float-wa" title="واتساب">💬</a>
+
+</body>
+</html>
